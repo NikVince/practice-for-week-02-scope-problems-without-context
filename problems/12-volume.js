@@ -25,6 +25,25 @@ console.log(table2(75)); // STILL prints 6
 ***********************************************************************/
 function recVolume(height) {
   // Your code here
+  let width;
+  let volume;
+  let calculated = false;
+  
+  return function(measurement) {
+    if (calculated) {
+      return volume;
+    }
+    
+    if (width === undefined) {
+      width = measurement;
+      return arguments.callee; // Return the same function for chaining
+    } else {
+      // This is the third call - calculate volume
+      volume = height * width * measurement;
+      calculated = true;
+      return volume;
+    }
+  };
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
