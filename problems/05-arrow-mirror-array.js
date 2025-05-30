@@ -10,6 +10,8 @@ mirrorArray(['a', 'b', 'c', 'd']); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a
 
 const mirrorArray = (array) => {
   // Your code here
+  let reversed = [...array].reverse(); // Make a copy first, then reverse
+  return array.concat(reversed); // Combine the original and reversed arrays
 };
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
