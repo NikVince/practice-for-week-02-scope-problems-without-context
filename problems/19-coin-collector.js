@@ -25,7 +25,17 @@ Example 3:
 
 ***********************************************************************/
 function coinCollector(numCoins) {
-  // Your code here
+  let coins = [];
+  
+  return function(coin) {
+    coins.push(coin);
+    
+    if (coins.length === numCoins) {
+      return coins;
+    } else {
+      return arguments.callee; // Return the same function for chaining
+    }
+  };
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
