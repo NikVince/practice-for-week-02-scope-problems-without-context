@@ -23,8 +23,19 @@ console.log(smoothie2("pineapple"));
 // prints "I'm having a smoothie with apples and bananas and berries and pineapple"
 ***********************************************************************/
 
-const smoothieMachine = (...ingredients) => {
+const smoothieMachine = (...initialIngredients) => {
   // Your code here
+  let allIngredients = [...initialIngredients];
+
+  return function(...newIngredients) {
+    allIngredients = allIngredients.concat(newIngredients);
+    
+    if (allIngredients.length === 0) {
+      return "I'm having a smoothie with milk";
+    } else {
+      return "I'm having a smoothie with " + allIngredients.join(" and ");
+    }
+  };
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
